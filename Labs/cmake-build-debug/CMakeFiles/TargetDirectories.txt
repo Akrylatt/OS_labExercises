@@ -1,0 +1,3 @@
+C:/Users/42072/OneDrive/Documents/Innopolis/OperatingSystems/LabExercises/Labs/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/42072/OneDrive/Documents/Innopolis/OperatingSystems/LabExercises/Labs/cmake-build-debug/CMakeFiles/Labs.dir
+C:/Users/42072/OneDrive/Documents/Innopolis/OperatingSystems/LabExercises/Labs/cmake-build-debug/CMakeFiles/edit_cache.dir
