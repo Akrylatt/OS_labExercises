@@ -7,13 +7,13 @@ int main(){
 	int i = 100;
 	pid_t x = fork(); // returns id of the new proces; pid_t is int
 	if(x == 0){
-		printf("Hello from child %d - %d \n", getpid(), i);
+		printf("Hello from child %d \n", (x-i));
 	}
 	else if(x > 0){
-		printf("Hello from parent %d - %d\n", getpid(), i);
+		printf("Hello from parent %d \n", (x-i));
 	}
 	else{
-		return EXIT_FAILURE;
+		return EXIT_FAILLER;
 	}
 
 
