@@ -14,6 +14,7 @@ void* job(void* args){
   t->text = "Hello";
   pthread_t id = pthread_self();
   printf("%s from the thread %lu \n", t->text, id);
+  return 0;
 }
 
 int main(void) {
