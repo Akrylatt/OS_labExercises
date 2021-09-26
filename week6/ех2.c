@@ -35,21 +35,33 @@ void print_array(int size, int *param_array){
     }
 }
 
-// TODO
-void calculateWaitingTime(int wT[], int aT[], int bT[], int n){
-    for(int i = 0; i < n; i++){
-        if(i == 0){
-            wT[i] = 0;
+void calculateWaitingTime(int wT[], int aT[], int bT[], int n) {
+    int rem[PROCESSES];
+    for (int i = 0; i < n; i++) {
+        rem[i] = bT[i];
+    }
+    int timer = aT[0];
+    int undone = n;
+
+    while(undone > 0){
+        int ind_minRem = -1;
+
+        for(int i = 0; i < n; i++){ // find the smallest reminder
+            if(aT[i] <= timer && rem[i] > 0){
+                if(ind_minRem == -1){
+                    ind_minRem = i;
+                }
+                else if(rem[i] < rem[ind_minRem]){
+                    ind_minRem = i;
+                }
+            }
         }
-        else{
-            int bNet = aT[0];
-            for(int j = 0; j < i; j++){
-                bNet += bT[j];
-            }
-            wT[i] = bNet - aT[i];
-            if(wT[i] < 0){
-                wT[i] = 0;
-            }
+        timer++;
+        rem[ind_minRem]--;
+        if(rem[ind_minRem] == 0){
+            undone--;
+            printf("%d, %d\n", bT[ind_minRem], timer);
+            wT[ind_minRem] = timer - bT[ind_minRem] - aT[ind_minRem];
         }
     }
 }
@@ -97,7 +109,7 @@ int main() {
     int waitingT[PROCESSES];
     int turnaroundT[PROCESSES];
 
-    for(int i = 0; i < n; i++){
+   for(int i = 0; i < n; i++){
         printf("What is the burst time for the %d process?\n", i);
         scanf_s("%d", &burstT[i]);
         printf("What is the arrival time for the %d process?\n", i);
