@@ -1,6 +1,16 @@
 #include <stdio.h>
 #define PROCESSES 30
 
+/*
+ * Compare & Contrast:
+ *
+ * Seeing the results, we cannot say that one particular scheduling algorithm is better than some other, becuase it depends on defined priorities and specifications of that system.
+ *
+ * If our goal is for example to maximize throughput, than the most effective algorithm would be "Shortest Job First",
+ * on the other hand if we want to make sure that the CPU time will be fairly distributed, than the preemptive could be better choice.
+ * The Round Robin is good algorithm if is our goal to avoid starvation.
+ * */
+
 /**
  * Sort by arrival time
  */
@@ -130,3 +140,6 @@ int main() {
 
     return 0;
 }
+
+
+
