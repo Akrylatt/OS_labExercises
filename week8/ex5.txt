@@ -1,0 +1,3 @@
+Difference between the physical and virtual address
+---------------------------------------------------
+Physical address is actual adress of the hardware memory, whereas the virtual aaddress is a value to which the hardware address is mapped in the virtual memory (but can be the same as the hardware memory). 

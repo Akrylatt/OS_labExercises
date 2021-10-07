@@ -1,0 +1,11 @@
+16-bit virtual address
+8 KB pages
+single-level linear page table size number of entries = ?
+-----------------------------------------------
+For 8 KB we need 8 * 1024 = 2^13
+So that we have 13 bit offset
+Hence,
+entries = (2^16)/(2^13) = 2^3
+
+2^3 entries are needed.
+
