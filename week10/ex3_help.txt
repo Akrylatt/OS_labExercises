@@ -1,0 +1,23 @@
+What to do?ls
+
+chmod a|u|g|o +|-|=
+
+a 
+g group
+u user
+o owner
+
+r read
+w write
+x execute
+
+- remove
++ add
+= set // overides the previous permissions 
+
+
+chmod a+x ex3.txt
+chmod a-x ex3.txt
+ls -l ex3.txt // shows the permissions
+
+history 10ls 

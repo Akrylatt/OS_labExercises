@@ -1,0 +1,14 @@
+-rw-r--r-- 1 runner runner 5 Oct 20 12:09 _ex3.txt
+-rwxr--rwx 1 runner runner 5 Oct 20 12:09 _ex3.txt
+-r--r--rwx 1 runner runner 5 Oct 20 12:09 _ex3.txt
+
+Answers:
+it is the decimal representation of the binary permissons, so that we can convert it as follows:
+
+where 	x means execute permission
+	r menas reading permission
+	w means writing permission
+	
+1] 660 means x-w--w-r--
+2] 775 means xr-----xrw
+3] 777 means xr----x--x

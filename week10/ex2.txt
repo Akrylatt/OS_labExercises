@@ -1,0 +1,4 @@
+./week01/file.txt
+./_ex2.txt
+
+// after the removing the output is empty
