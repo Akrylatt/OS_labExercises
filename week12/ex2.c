@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <linux/input.h>
+#include <string.h>
+#include <stdio.h>
+
+
+static const char *const evval[3] = {
+  "RELEASED", "PRESSED", "REPEATED"
+};
+
+int main(void) {
+
+  const char *dev = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+  struct input_event ev;
+  ssize_t n;
+
+  int fd = open(dev, O_RDONLY);
+
+  if(fd == -1){
+    fprintf(stderr, "Failed to open %s\n", dev);
+    return -1;
+  }
+
+  while(1){
+    n = read(fd, &ev, sizeof ev);
+
+    if (n == (ssize_t)-1) {
+            if (errno == EINTR)
+                continue;
+            else
+                break;
+        } else
+        if (n != sizeof ev) {
+            errno = EIO;
+            break;
+        }
+
+    if (ev.type == EV_KEY && ev.value >= 0 && ev.value <= 2){
+        printf("%s 0x%04x (%d)\n", evval[ev.value], (int)ev.code, (int)ev.code);
+    }
+  }
+
+  fflush(stdout);
+  fprintf(stderr, "%s \n", strerror(errno));
+  return -1;
+
+
+  
+  return 0;
+}
