@@ -1,29 +1,24 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <linux/input.h>
-#include <string.h>
-#include <stdio.h>
+
 
 int main(void) {
     int res = 3, proc = 5; //res and proc
     int is_finished = 0;
 
-    int resNum[res]; // number of resource
-    int availableRes[res]; // number of available resources
+    int resNum[3]; // number of resource
+    int availableRes[3]; // number of available resources
 
-    int c[proc][res];
-    int r[proc][res];
+    int c[5][3];
+    int r[5][3];
 
-    FILE* input_file = fopen("input_ok.txt", "r");
+    FILE* input_file = fopen("C:\\Users\\42072\\OneDrive\\Documents\\Innopolis\\OperatingSystems\\Labs\\13\\input_ok.txt", "r");
     FILE* output = fopen("ex1_output.txt", "w");
     int current;
 
     int n = 1;
     int a = 0;
 
-    int unoccupiedREs[proc]; // unoccupied resources
+    int unoccupiedREs[5]; // unoccupied resources
     for(int i = 0; i < proc; i++){
         unoccupiedREs[i] = 0;
     }
@@ -79,7 +74,7 @@ int main(void) {
     for(int i = 0; i < proc; i++){
         if(unoccupiedREs[i] == 0){
             hgh = 0;
-            fprintf(output, "There has occured availableRes deadlock in process %d \n", i);
+            fprintf(output, "There has occured a deadlock in process %d \n", i);
         }
     }
     if(hgh == 1){
